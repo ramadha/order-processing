@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "customerName": "Ali Example",
+    "productId": 2,
+    "productName": "Phone",
+    "price": 699,
+    "status": "Completed",
+    "createdAt": "2025-08-18T10:00:00.000Z",
+    "updatedAt": "2025-08-18T10:00:10.000Z"
+  },
+  {
+    "id": 2,
+    "customerName": "Olivia Example",
+    "productId": 3,
+    "productName": "Headphones",
+    "price": 199,
+    "status": "Processing",
+    "createdAt": "2025-08-19T12:00:00.000Z",
+    "updatedAt": "2025-08-19T12:00:02.000Z"
+  }
+]
