@@ -1,36 +1,28 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createOrder } from "../api/orders";
-
-const PRODUCTS = [
-  { id: 1, name: "Laptop", price: 999 },
-  { id: 2, name: "Phone", price: 699 },
-  { id: 3, name: "Headphones", price: 199 },
-  { id: 4, name: "Tablet", price: 499 },
-];
+import { useSubmitOrder } from "../hooks";
+import { PRODUCTS } from "../data/products";
 
 export function OrderForm() {
   const [customerName, setCustomerName] = useState("");
   const [productId, setProductId] = useState<number>(PRODUCTS[0].id);
   const [touched, setTouched] = useState(false);
 
-  const qc = useQueryClient();
-
-  const mutation = useMutation({
-    mutationFn: createOrder,
-    onSuccess: () => {
-      setCustomerName("");
-      setProductId(PRODUCTS[0].id);
-      setTouched(false);
-      qc.invalidateQueries({ queryKey: ["orders"] });
-    },
-  });
+  const mutation = useSubmitOrder();
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setTouched(true);
     if (!customerName.trim()) return;
-    mutation.mutate({ customerName, productId });
+    mutation.mutate(
+      { customerName, productId },
+      {
+        onSuccess: () => {
+          setCustomerName("");
+          setProductId(PRODUCTS[0].id);
+          setTouched(false);
+        },
+      }
+    );
   };
 
   const hasNameError = touched && customerName.trim().length === 0;
@@ -46,7 +38,7 @@ export function OrderForm() {
             id="customerName"
             className={`uk-input ${hasNameError ? "uk-form-danger" : ""}`}
             type="text"
-            placeholder="Jane Doe"
+            placeholder="John"
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             onBlur={() => setTouched(true)}
@@ -81,7 +73,7 @@ export function OrderForm() {
           {mutation.isPending ? "Submitting…" : "Submit Order"}
         </button>
         {mutation.isError && (
-          <span className="uk-text-danger uk-margin-small-left">Failed to submit. Please try again. </span>
+          <span className="uk-text-danger uk-margin-small-left">Failed to submit. Please try again.</span>
         )}
       </div>
     </form>

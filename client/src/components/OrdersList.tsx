@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchOrders } from "../api/orders";
+import { useOrders } from "../hooks";
 import type { Order } from "../types";
 
 function StatusBadge({ status }: { status: Order["status"] }) {
@@ -8,11 +7,7 @@ function StatusBadge({ status }: { status: Order["status"] }) {
 }
 
 export function OrdersList() {
-  const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["orders"],
-    queryFn: fetchOrders,
-    refetchInterval: 1000,
-  });
+  const { data, isLoading, isError, refetch } = useOrders({ refetchIntervalMs: 1000 });
 
   if (isLoading) {
     return (
