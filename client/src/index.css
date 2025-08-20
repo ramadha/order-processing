@@ -3,3 +3,9 @@
 .uk-accordion-title{
     font-size: 1rem;
 }
+.clear-btn{
+    border: none;
+}
+.uk-input{
+    padding-right: 32px;
+}
