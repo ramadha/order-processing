@@ -1,4 +1,5 @@
 import { OrderForm } from "./components/OrderForm";
+import { OrdersList } from "./components/OrdersList";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <div>
             <div className="uk-card uk-card-default uk-card-body">
               <h3 className="uk-card-title">Orders</h3>
+              <OrdersList />
             </div>
           </div>
         </div>

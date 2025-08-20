@@ -19,7 +19,6 @@ export function OrderForm() {
   const mutation = useMutation({
     mutationFn: createOrder,
     onSuccess: () => {
-      // reset form and refresh list
       setCustomerName("");
       setProductId(PRODUCTS[0].id);
       setTouched(false);
