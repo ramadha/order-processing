@@ -15,31 +15,31 @@ A React + TypeScript application for order processing with Node backend. It uses
 
 ## Project Structure
 
-|- client/
-|-- src/
-|--- api/
-|---- client.ts
-|---- orders.ts
-|---- queryClient.ts
-|--- components/
-|---- OrderForm.tsx
-|---- OrderList.tsx
-|--- data/
-|---- products.ts
-|--- hooks/
-|---- useDebounce.ts
-|---- useOrders.ts
-|---- useSubmitOrder.ts
-|--- lib/
-|---- queryKeys.ts
-|- server/
-|-- src/
-|--- controllers/
-|---- orderController.ts
-|--- mock/
-|---- orders.json
-|--- routers/
-|---- orderRouter.ts
+|- client/<br/>
+|-- src/<br/>
+|--- api/<br/>
+|---- client.ts<br/>
+|---- orders.ts<br/>
+|---- queryClient.ts<br/>
+|--- components/<br/>
+|---- OrderForm.tsx<br/>
+|---- OrderList.tsx<br/>
+|--- data/<br/>
+|---- products.ts<br/>
+|--- hooks/<br/>
+|---- useDebounce.ts<br/>
+|---- useOrders.ts<br/>
+|---- useSubmitOrder.ts<br/>
+|--- lib/<br/>
+|---- queryKeys.ts<br/>
+|- server/<br/>
+|-- src/<br/>
+|--- controllers/<br/>
+|---- orderController.ts<br/>
+|--- mock/<br/>
+|---- orders.json<br/>
+|--- routers/<br/>
+|---- orderRouter.ts<br/>
 
 ---
 
@@ -61,12 +61,10 @@ A React + TypeScript application for order processing with Node backend. It uses
 
 ## Running the Project
 
-### Install dependencies
+- ### Install dependencies
 
 npm install
 
-### Start Development server
-
-# runs client (5173) + server (3000) in parallel
+- #### runs client (5173) + server (3000) in parallel
 
 npm run dev
